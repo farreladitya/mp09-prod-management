@@ -11,12 +11,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product List</title>
+    <title>Add Product</title>
     <link href="assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
     <link href="assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/datatables/datatables.min.css" rel="stylesheet">
     <link href="assets/css/master.css" rel="stylesheet">
 </head>
 
@@ -37,7 +36,6 @@
                 <li>
                     <a href="user-list.html"><i class="fas fa-user-friends"></i>Users</a>
                 </li>
-                </li>
             </ul>
         </nav>
         <!-- end of sidebar component -->
@@ -56,6 +54,10 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end nav-link-menu">
                                     <ul class="nav-list">
+                                        <!-- <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                                        <div class="dropdown-divider"></div> -->
                                         <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                                     </ul>
                                 </div>
@@ -67,78 +69,51 @@
             <!-- end of navbar navigation -->
             <div class="content">
                 <div class="container">
-                    <div class="box box-default">
-                    <div class="box-body">
-                    
+                    <div class="page-title">
+                        <h3>Add Product</h3>
+                    </div>
                     <div class="row">
-                        <div class="col-9 mt-3">
-                            <div class="jumbotron">
-                            <h2>HAI BCA!</h2>        
+                        <div class="col-lg-12">
+                            <div class="card border-primary">
+                                <div class="card-header">Product Information</div>
+                                <div class="card-body">
+                                    <form accept-charset="utf-8">
+                                        <div class="mb-3">
+                                            <label for="product" class="form-label">Product Name</label>
+                                            <input type="text" name="product" placeholder="Enter product" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="pnumber" class="form-label">Product No</label>
+                                            <input type="text" name="pnumber" placeholder="Enter product number" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option>Furniture</option>
+                                                <option value="1">Electronic</option>
+                                                <option value="2">Books</option>
+                                                <option value="3">Plants</option>
+                                              </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="stock" class="form-label">Stock</label>
+                                            <input type="text" name="stock" placeholder="Enter stock" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="submit" class="btn btn-primary">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-3 mt-2">
-                                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWa27Zlixg3zPGkLrmH_8HdxdEmXIi21TXVw&usqp=CAU" alt="Card image cap" style="width: 2rem;">
-                                <p class="card-text">Bogor, Cerah Berhujan 
-                        </div>
                     </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <h6>Product List</h6>
-                            <table class="table table-bordered">
-                                <thead class="thead table-primary">
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Product Name</th>
-                                    <th scope="col">Product No</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Stock</th>
-                                    <th scope="col">Action</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </div>
-
-                    </div>
-
-                    </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/datatables/datatables.min.js"></script>
-    <script src="assets/js/initiate-datatables.js"></script>
+    <script src="assets/js/form-validator.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
