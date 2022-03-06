@@ -2,7 +2,6 @@ package mp09.spring.core.entity;
 
 import javax.persistence.Entity;
 
-@Entity
 public class Category {
 
     private int id;

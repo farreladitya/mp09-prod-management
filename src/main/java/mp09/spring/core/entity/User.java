@@ -1,5 +1,7 @@
 package mp09.spring.core.entity;
 
+import javax.persistence.Entity;
+
 public class User {
 
     private int id;
