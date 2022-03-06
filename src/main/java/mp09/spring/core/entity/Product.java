@@ -1,6 +1,7 @@
 package mp09.spring.core.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 public class Product {
 

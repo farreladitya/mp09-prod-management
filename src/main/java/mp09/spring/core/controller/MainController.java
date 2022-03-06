@@ -1,4 +1,4 @@
-package mp09.spring.core;
+package mp09.spring.core.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,5 +14,10 @@ public class MainController {
     @GetMapping("/login")
     public String showLoginPage() {
         return "login";
+    }
+
+    @GetMapping("/add-user")
+    public String showAddUser() {
+        return "add-user";
     }
 }
