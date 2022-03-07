@@ -5,7 +5,7 @@
 * Author: Alexis Luna
 * Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
 -->
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -28,15 +28,13 @@
             </div>
             <ul class="list-unstyled components text-secondary">
                 <li>
-                    <a href="product-list.html"><i class="fas fa-list"></i>Product</a>
+                    <a href="/products"><i class="fas fa-list"></i>Product</a>
                 </li>
                 <li>
-                    <a href="product-category-list.html"><i class="fas fa-file-alt"></i>Product Category</a>
+                    <a href="/categories"><i class="fas fa-file-alt"></i>Product Category</a>
                 </li>
                 <li>
-                    <a href="user-list.html"><i class="fas fa-user-friends"></i>Users</a>
-                </li>
-
+                    <a href="/users"><i class="fas fa-user-friends"></i>Users</a>
                 </li>
             </ul>
         </nav>
@@ -85,6 +83,10 @@
 
                     <hr>
 
+                    <div th:if="${message}" class="alert alert-success text-center">
+                        [[${message}]]
+                    </div>
+
                     <div class="row">
                         <div class="col-12">
                             <h6>Product Category List</h6>
@@ -98,24 +100,17 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                <th:block th:each="category : ${categories}">
                                   <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">[[${category.id}]]</th>
+                                    <td>[[${category.name}]]</td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <a class="h4 mr-3" th:href="@{'/categories/edit/' + ${category.id}}">Edit</a>
+                                        <a class="h4" th:href="@{'/categories/delete/' + ${category.id}}">Delete</a>
+                                    </td>
                                   </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
+                                </th:block>
                                 </tbody>
                               </table>
                         </div>
@@ -124,14 +119,15 @@
 
                     </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/datatables/datatables.min.js"></script>
-    <script src="assets/js/initiate-datatables.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/datatables/datatables.min.js"></script>
+    <script src="/js/initiate-datatables.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

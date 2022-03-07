@@ -8,14 +8,14 @@ import java.util.List;
 @Component
 public interface CategoryService {
 
-    Category addCategory(Category category);
+    Category save(Category category);
 
-    List<Category> getAllCategory();
+    List<Category> getAll();
 
-    Category getById(int id);
+    Category getById(Integer id) throws Throwable;
 
     Category update(Category category);
 
-    void delete(int id);
+    void delete(Integer id) throws Throwable;
 
 }
