@@ -1,7 +1,10 @@
 package mp09.spring.core.controller;
 
+import mp09.spring.core.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MainController {
@@ -17,10 +20,10 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/add-user")
-    public String showAddUser() {
-        return "add-user";
+    @GetMapping("/register")
+    public String showRegisterPage(Model model, RedirectAttributes attributes) {
+        model.addAttribute("user", new User());
+        return "user-register";
     }
-
 
 }
