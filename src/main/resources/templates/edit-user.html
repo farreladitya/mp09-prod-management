@@ -73,17 +73,21 @@
                             <div class="card border-success">
                                 <div class="card-header">User Information</div>
                                 <div class="card-body">
-                                    <form accept-charset="utf-8">
+                                    <form th:action="@{/users/update}" method="post" th:object="${user}">
                                         <div class="mb-3">
-                                            <label for="name" class="form-label">Fullname</label>
-                                            <input th:field="*{name}" id="name" type="text" name="fullname" class="form-control" required>
+                                            <label for="fullname" class="form-label">Fullname</label>
+                                            <input th:field="*{name}" id="fullname" type="text" name="fullname" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="text" name="email" class="form-control" required>
+                                            <input th:field="*{email}" id="email" type="text" name="email" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="submit" value="Save" class="btn btn-success">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input th:field="*{password}" id="password" type="password" name="password" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="submit" class="btn btn-success" value="Update">
                                         </div>
                                     </form>
                                 </div>
