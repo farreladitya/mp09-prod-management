@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import mp09.spring.core.audit.AuditableBase;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product extends AuditableBase {
 
     @Id
     @GeneratedValue()
