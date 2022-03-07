@@ -5,7 +5,7 @@
 * Author: Alexis Luna
 * Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
 -->
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -92,37 +92,28 @@
                                   <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Product Name</th>
-                                    <th scope="col">Product No</th>
-                                    <th scope="col">Category</th>
+                                    <th scope="col">Product Category</th>
                                     <th scope="col">Stock</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Description</th>
                                     <th scope="col">Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
+                                <th:block th:each="product : ${products}">
                                   <tr>
-                                    <th scope="row">1</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <th scope="row">[[${product.id}]]</th>
+                                    <td>[[${product.productname}]]</td>
+                                    <td>[[${product.categoryname}]]</td>
+                                    <td>[[${product.qty}]]</td>
+                                    <td>[[${product.price}]]</td>
+                                    <td>[[${product.description}]]</td>
+                                    <td>
+                                      <a class="h4 mr-3" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
+                                      <a class="h4" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
+                                    </td>
                                   </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                  </tr>
+                                </th:block>
                                 </tbody>
                               </table>
                         </div>

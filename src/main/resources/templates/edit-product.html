@@ -5,7 +5,7 @@
 * Author: Alexis Luna
 * Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
 -->
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -73,14 +73,15 @@
                             <div class="card border-primary">
                                 <div class="card-header">Product Information</div>
                                 <div class="card-body">
-                                    <form accept-charset="utf-8">
+                                    <form th:action="@{/products/update}" method="post" th:object="${product}" accept-charset="utf-8">
+                                        <input type="hidden" th:field="*{id}">
                                         <div class="mb-3">
-                                            <label for="product" class="form-label">Product Name</label>
-                                            <input type="text" name="product" placeholder="Enter product" class="form-control" required>
+                                            <label for="productname" class="form-label">Product Name</label>
+                                            <input th:field="*{productname}" id="productname" type="text" name="product" placeholder="Enter product" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="pnumber" class="form-label">Product No</label>
-                                            <input type="text" name="pnumber" placeholder="Enter product number" class="form-control" required>
+                                            <label for="category" class="form-label">Product Category</label>
+                                            <input th:field="*{categoryname}" id="category" type="text" name="pnumber" placeholder="Enter product number" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="category" class="form-label">Category</label>
@@ -89,14 +90,22 @@
                                                 <option value="1">Electronic</option>
                                                 <option value="2">Books</option>
                                                 <option value="3">Plants</option>
-                                              </select>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="stock" class="form-label">Stock</label>
-                                            <input type="text" name="stock" placeholder="Enter stock" class="form-control" required>
+                                            <input th:field="*{qty}" id="stock" type="text" name="stock" placeholder="Enter stock" class="form-control" required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="submit" value="Save" class="btn btn-primary">
+                                            <label for="price" class="form-label">Price</label>
+                                            <input th:field="*{price}" id="price" type="text" name="stock" placeholder="Enter stock" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="desc" class="form-label">Description</label>
+                                            <input th:field="*{description}" id="desc" type="text" name="stock" placeholder="Enter stock" class="form-control" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="submit" class="btn btn-primary">
                                         </div>
                                     </form>
                                 </div>
