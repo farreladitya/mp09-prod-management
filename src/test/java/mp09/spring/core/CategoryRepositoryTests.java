@@ -1,9 +1,7 @@
 package mp09.spring.core;
 
 import mp09.spring.core.entity.Category;
-import mp09.spring.core.repository.category.CategoryRepository;
-import mp09.spring.core.repository.user.User;
-import mp09.spring.core.repository.user.UserRepository;
+import mp09.spring.core.repository.CategoryRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,49 +23,50 @@ public class CategoryRepositoryTests {
     public void testAddNew(){
         Category category = new Category();
         category.setName("Category Test");
+        category.setDescription("Description Test");
 
         Category savedCategory = categoryRepository.save(category);
 
         Assertions.assertThat(savedCategory).isNotNull();
         Assertions.assertThat(savedCategory.getId()).isGreaterThan(0);
     }
-
-    @Test
-    public void testListAll(){
-        Iterable<Category> categories = categoryRepository.findAll();
-        Assertions.assertThat(categories).hasSizeGreaterThan(0);
-
-        for (Category category : categories) {
-            System.out.println(category);
-        }
-    }
-
-    @Test
-    public void testUpdate(){
-        Integer categoryId = 1;
-        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
-        Category category = optionalCategory.get();
-        category.setName("This category has been updated");
-        categoryRepository.save(category);
-
-        Category updatedCategory = categoryRepository.findById(categoryId).get();
-        Assertions.assertThat(updatedCategory.getName()).isEqualTo("This category has been updated");
-    }
-
-    @Test
-    public void testGet(){
-        Integer categoryId = 1;
-        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
-        Assertions.assertThat(optionalCategory).isPresent();
-        System.out.println(optionalCategory.get());
-    }
-
-    @Test
-    public void testDelete(){
-        Integer categoryId = 2;
-        categoryRepository.deleteById(categoryId);
-
-        Optional<Category> optionalUser = categoryRepository.findById(categoryId);
-        Assertions.assertThat(optionalUser).isNotPresent();
-    }
+//
+//    @Test
+//    public void testListAll(){
+//        Iterable<Category> categories = categoryRepository.findAll();
+//        Assertions.assertThat(categories).hasSizeGreaterThan(0);
+//
+//        for (Category category : categories) {
+//            System.out.println(category);
+//        }
+//    }
+//
+//    @Test
+//    public void testUpdate(){
+//        Integer categoryId = 1;
+//        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+//        Category category = optionalCategory.get();
+//        category.setName("This category has been updated");
+//        categoryRepository.save(category);
+//
+//        Category updatedCategory = categoryRepository.findById(categoryId).get();
+//        Assertions.assertThat(updatedCategory.getName()).isEqualTo("This category has been updated");
+//    }
+//
+//    @Test
+//    public void testGet(){
+//        Integer categoryId = 1;
+//        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+//        Assertions.assertThat(optionalCategory).isPresent();
+//        System.out.println(optionalCategory.get());
+//    }
+//
+//    @Test
+//    public void testDelete(){
+//        Integer categoryId = 2;
+//        categoryRepository.deleteById(categoryId);
+//
+//        Optional<Category> optionalUser = categoryRepository.findById(categoryId);
+//        Assertions.assertThat(optionalUser).isNotPresent();
+//    }
 }

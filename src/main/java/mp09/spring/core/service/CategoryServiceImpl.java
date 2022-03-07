@@ -1,8 +1,7 @@
 package mp09.spring.core.service;
 
 import mp09.spring.core.entity.Category;
-import mp09.spring.core.repository.category.CategoryRepository;
-import mp09.spring.core.repository.user.User;
+import mp09.spring.core.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,7 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Autowired
     CategoryRepository categoryRepository;
-
-
+    
     @Override
     public Category save(Category category) {
         categoryRepository.save(category);

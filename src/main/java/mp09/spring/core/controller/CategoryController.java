@@ -30,6 +30,7 @@ public class CategoryController {
     public String showAddForm(Model model) {
         model.addAttribute("category", new Category());
         model.addAttribute("pageTitle", "Add New Categories");
+
         return "add-product-category";
     }
 
@@ -37,6 +38,7 @@ public class CategoryController {
     public String saveCategory(Category category, RedirectAttributes attributes) {
         categoryService.save(category);
         attributes.addFlashAttribute("message", "Category " + category.getName() + " successfully Added.");
+
         return "redirect:/categories";
     }
 
@@ -46,9 +48,11 @@ public class CategoryController {
             Category category = categoryService.getById(id);
             model.addAttribute("category", category);
             model.addAttribute("pageTitle", "Edit Category (ID: " + id + ")");
+
             return "edit-product-category";
         } catch (Throwable e) {
             attributes.addFlashAttribute("message", e.getMessage());
+
             return "redirect:/categories";
         }
     }
@@ -57,6 +61,7 @@ public class CategoryController {
     public String updateCategory(Category category, RedirectAttributes attributes) {
         categoryService.save(category);
         attributes.addFlashAttribute("message", "Category successfully updated.");
+
         return "redirect:/categories";
     }
 
@@ -68,6 +73,7 @@ public class CategoryController {
         } catch (Throwable e) {
             attributes.addFlashAttribute("message", e.getMessage());
         }
+
         return "redirect:/categories";
     }
 }

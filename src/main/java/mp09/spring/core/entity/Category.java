@@ -13,6 +13,9 @@ public class Category {
     @Column(length = 50, nullable = false, name = "name")
     private String name;
 
+    @Column(nullable = false, name = "description")
+    private String description;
+
     public int getId() {
         return id;
     }
@@ -27,6 +30,14 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
