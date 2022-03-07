@@ -1,4 +1,4 @@
-package mp09.spring.core.entity;
+package mp09.spring.core.repository.product;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
