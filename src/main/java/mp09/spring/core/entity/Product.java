@@ -24,4 +24,8 @@ public class Product extends AuditableBase {
     private int qty;
     private Long price;
     private String description;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn
+    private Category category;
 }

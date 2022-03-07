@@ -23,9 +23,9 @@ public class User {
     private String password;
 
     // one to many (user can have many products)
-    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_product", referencedColumnName = "id")
-    private List<Product> products;
+//    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_product", referencedColumnName = "id")
+//    private List<Product> products;
 
     public int getId() {
         return id;
