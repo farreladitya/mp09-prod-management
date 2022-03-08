@@ -23,7 +23,6 @@ public class CategoryRepositoryTests {
     public void testAddNew(){
         Category category = new Category();
         category.setName("Category Test");
-        category.setDescription("Description Test");
 
         Category savedCategory = categoryRepository.save(category);
 

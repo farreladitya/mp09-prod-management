@@ -20,12 +20,11 @@ public class Product extends AuditableBase {
     @GeneratedValue()
     private int id;
     private String productname;
-    private String categoryname;
     private int qty;
     private Long price;
     private String description;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn
     private Category category;
 }

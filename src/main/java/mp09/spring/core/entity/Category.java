@@ -21,8 +21,4 @@ public class Category {
 
     @Column(length = 50, nullable = false, name = "name")
     private String name;
-
-    @Column(nullable = false, name = "description")
-    private String description;
-    
 }

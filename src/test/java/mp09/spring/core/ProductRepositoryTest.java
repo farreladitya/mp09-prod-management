@@ -23,7 +23,6 @@ public class ProductRepositoryTest {
     public void testAddNew(){
         Product product = new Product();
         product.setProductname("Product Name Test");
-        product.setCategoryname("Category Test");
         product.setQty(10);
         product.setPrice(20000L);
         product.setDescription("Description Test");

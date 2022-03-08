@@ -18,4 +18,6 @@ public interface ProductService {
     Product update(Product product);
 
     void delete(Integer id) throws Throwable;
+
+    List<Category> getCategories();
 }
