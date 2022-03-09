@@ -13,10 +13,6 @@ public class LoginController {
     @Autowired
     private UserRepository repo;
 
-    @GetMapping("")
-    public String viewHomePage(){
-        return "login";
-    }
     @GetMapping("/register")
     public String showSignUpForm(Model model){
         model.addAttribute("user", new User());

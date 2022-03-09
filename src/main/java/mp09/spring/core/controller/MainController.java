@@ -19,11 +19,4 @@ public class MainController {
     public String showLoginPage() {
         return "login";
     }
-
-    @GetMapping("/register")
-    public String showRegisterPage(Model model, RedirectAttributes attributes) {
-        model.addAttribute("user", new User());
-        return "user-register";
-    }
-
 }

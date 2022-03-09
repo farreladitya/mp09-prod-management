@@ -69,16 +69,18 @@
                     <div class="box box-default">
                     <div class="box-body">
                     
-                    <div class="row">
+                    <div class="d-flex justify-content-between">
                         <div class="col-9 mt-3">
                             <div class="jumbotron">
                             <h2>HAI BCA!</h2>        
                             </div>
                         </div>
 
-                        <div class="col-3 mt-2">
-                                <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWa27Zlixg3zPGkLrmH_8HdxdEmXIi21TXVw&usqp=CAU" alt="Card image cap" style="width: 2rem;">
-                                <p class="card-text">Bogor, Cerah Berhujan 
+                        <div class="col-6 mt-2">
+                            <img class="card-img-top" src="" id="weathericon">
+                            <div class="col-md-6">
+                                <div id="weather"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -117,7 +119,6 @@
                                 </tbody>
                               </table>
                         </div>
-
                     </div>
 
                     </div>
@@ -131,6 +132,23 @@
     <script src="/vendor/datatables/datatables.min.js"></script>
     <script src="/js/initiate-datatables.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/weather.js"></script>
 </body>
+
+<!--<script type="text/javascript">-->
+<!--    link = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=6e1377917ba5dc606d32495c04dfd273";-->
+<!--    var request = new XMLHttpRequest();-->
+<!--    request.open('GET',link,true);-->
+<!--    request.onload = function() {-->
+<!--        var obj = JSON.parse(this.response);-->
+<!--        console.log(obj);-->
+<!--        document.getElementById('weather2').innerHTML = obj.weather[0].description;-->
+<!--        document.getElementById('temp').innerHTML = obj.main.temp - 273.15;-->
+<!--    }-->
+<!--    if(request.status==200) {-->
+<!--        console.log("ERROR");-->
+<!--    }-->
+<!--    request.send();-->
+<!--</script>-->
 
 </html>
