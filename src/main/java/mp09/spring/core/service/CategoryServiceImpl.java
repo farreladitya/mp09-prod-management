@@ -3,6 +3,9 @@ package mp09.spring.core.service;
 import mp09.spring.core.entity.Category;
 import mp09.spring.core.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,5 +49,11 @@ public class CategoryServiceImpl implements CategoryService{
             throw new Throwable("Could not find any categories with id : " + id);
         }
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Category> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return categoryRepository.findAll(pageable);
     }
 }

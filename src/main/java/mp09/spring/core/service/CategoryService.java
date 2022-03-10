@@ -1,6 +1,8 @@
 package mp09.spring.core.service;
 
 import mp09.spring.core.entity.Category;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,4 +20,5 @@ public interface CategoryService {
 
     void delete(Integer id) throws Throwable;
 
+    Page<Category> findPaginated(int pageNo, int pageSize);
 }

@@ -1,16 +1,19 @@
 package mp09.spring.core.controller;
 
+import mp09.spring.core.entity.Category;
 import mp09.spring.core.entity.Product;
 import mp09.spring.core.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -22,10 +25,11 @@ public class ProductController {
 
     @GetMapping("")
     public String showProducts(Model model) {
-        List<Product> products = productService.getAll();
-        model.addAttribute("products", products);
-
-        return "product-list";
+//        List<Product> products = productService.getAll();
+//        model.addAttribute("products", products);
+//
+//        return "product-list";
+        return findPaginated(1, model);
     }
 
     @GetMapping("/add")
@@ -78,5 +82,19 @@ public class ProductController {
         }
 
         return "redirect:/products";
+    }
+
+    @GetMapping("/page/{pageNo}")
+    public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
+        int pageSize = 5;
+
+        Page<Product> page = productService.findPaginated(pageNo, pageSize);
+        List<Product> products = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("products", products);
+        return "product-list";
     }
 }

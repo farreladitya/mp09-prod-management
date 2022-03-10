@@ -19,16 +19,16 @@ public class CategoryRepositoryTests {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Test
-    public void testAddNew(){
-        Category category = new Category();
-        category.setName("Category Test");
-
-        Category savedCategory = categoryRepository.save(category);
-
-        Assertions.assertThat(savedCategory).isNotNull();
-        Assertions.assertThat(savedCategory.getId()).isGreaterThan(0);
-    }
+//    @Test
+//    public void testAddNew(){
+//        Category category = new Category();
+//        category.setName("Category Test");
+//
+//        Category savedCategory = categoryRepository.save(category);
+//
+//        Assertions.assertThat(savedCategory).isNotNull();
+//        Assertions.assertThat(savedCategory.getId()).isGreaterThan(0);
+//    }
 //
 //    @Test
 //    public void testListAll(){

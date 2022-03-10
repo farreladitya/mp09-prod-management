@@ -5,6 +5,7 @@ import mp09.spring.core.entity.User;
 import mp09.spring.core.service.ProductServiceImpl;
 import mp09.spring.core.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,10 +25,11 @@ public class UserController {
 
     @GetMapping("")
     public String showUsers(Model model) {
-        List<User> users = userService.getAll();
-        model.addAttribute("users", users);
-
-        return "user-list";
+//        List<User> users = userService.getAll();
+//        model.addAttribute("users", users);
+//
+//        return "user-list";
+        return findPaginated(1, model);
     }
 
     @GetMapping("/add")
@@ -79,5 +81,19 @@ public class UserController {
         }
 
         return "redirect:/users";
+    }
+
+    @GetMapping("/page/{pageNo}")
+    public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model) {
+        int pageSize = 5;
+
+        Page<User> page = userService.findPaginated(pageNo, pageSize);
+        List<User> users = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("users", users);
+        return "user-list";
     }
 }

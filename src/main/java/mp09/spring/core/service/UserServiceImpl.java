@@ -4,6 +4,9 @@ import mp09.spring.core.entity.Product;
 import mp09.spring.core.entity.User;
 import mp09.spring.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,5 +51,11 @@ public class UserServiceImpl implements UserService{
             throw new Throwable("Could not find any products with id : " + id);
         }
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<User> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return userRepository.findAll(pageable);
     }
 }

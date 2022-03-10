@@ -2,6 +2,7 @@ package mp09.spring.core.service;
 
 import mp09.spring.core.entity.Category;
 import mp09.spring.core.entity.Product;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface ProductService {
     void delete(Integer id) throws Throwable;
 
     List<Category> getCategories();
+
+    Page<Product> findPaginated(int pageNo, int pageSize);
 }
