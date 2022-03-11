@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="category" class="form-label">Category</label>
-                                            <select th:field="*{category}" id="category" class="form-select" aria-label="Default select example">
+                                            <select th:field="*{category}" id="category" class="form-select" aria-label="Default select example" required>
                                                 <option th:each="category : ${categories}" th:value="${category.id}">[[${category.name}]]</option>
                                             </select>
                                         </div>
