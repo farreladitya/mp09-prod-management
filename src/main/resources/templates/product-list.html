@@ -18,6 +18,7 @@
     <!--   Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
 
+
     <!--    Font Awesome-->
     <link href="/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
     <link href="/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
@@ -101,8 +102,9 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <h6>Product List</h6>
-                            <table class="table table-bordered">
+                            <h1>Product List</h1>
+                            <a href="/products/add" class="btn btn-primary" > + Add Products</a>
+                            <table class="table table-bordered mt-3">
                                 <thead class="thead table-primary">
                                   <tr>
                                     <th scope="col">#</th>
@@ -117,15 +119,16 @@
                                 <tbody>
                                 <th:block th:each="product : ${products}">
                                   <tr>
-                                    <th scope="row">[[${product.id}]]</th>
-                                    <td>[[${product.productname}]]</td>
-                                    <td>[[${product.category.name}]]</td>
-                                    <td>[[${product.qty}]]</td>
-                                    <td>[[${product.price}]]</td>
-                                    <td>[[${product.description}]]</td>
+                                      <th scope="row">[[${product.id}]]</th>
+                                      <th scope="row">[[${product.productname}]]</th>
+                                      <th scope="row">[[${product.category.name}]]</th>
+                                      <th scope="row">[[${product.qty}]]</th>
+                                      <th scope="row">[[${product.price}]]</th>
+                                      <th scope="row">[[${product.description}]]</th>
+
                                     <td>
-                                      <a class="h4 mr-3" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
-                                      <a class="h4" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
+                                      <a class="btn btn-warning mr-3" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
+                                      <a class="btn btn-danger" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
                                     </td>
                                   </tr>
                                 </th:block>
