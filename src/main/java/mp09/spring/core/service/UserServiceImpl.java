@@ -1,6 +1,5 @@
 package mp09.spring.core.service;
 
-import mp09.spring.core.entity.Product;
 import mp09.spring.core.entity.User;
 import mp09.spring.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

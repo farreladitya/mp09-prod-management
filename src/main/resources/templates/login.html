@@ -5,7 +5,9 @@
 * Author: Alexis Luna
 * Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
 -->
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 
 <head>
     <meta charset="utf-8">
@@ -17,12 +19,22 @@
 </head>
 
 <body>
+
     <div class="wrapper">
         <div class="auth-content">
             <div class="card">
                 <div class="card-body text-center">
                     <h2 class="mb-4 text-muted">MP-09</h2>
-                    <form action="" method="">
+                    <form name="f" action="@{/signin}" method="post">
+                        <fieldset>
+                            <!-- Thymeleaf + Spring Security error display -->
+                            <div if="${param.error}" class="alert alert-danger">
+                                Invalid username and password.
+                            </div>
+
+                            <div if="${param.logout}" class="alert alert-success">
+                                You have been logged out.
+                            </div>
                         <div class="mb-3 text-start">
                             <label  class="form-label">Email</label>
                             <input type="email" class="form-control" placeholder="Enter email address" required>
@@ -31,10 +43,9 @@
                             <label  class="form-label">Password</label>
                             <input type="password" class="form-control" placeholder="Password" required>
                         </div>
-                        <button class="btn btn-primary shadow-2 mb-4">Masuk</button>
+                        <button class="btn btn-primary shadow-2 mb-4">Login</button>
                     </form>
                 </div>
-                <h3><a href="@{/register}"></a>Register</h3>
             </div>
         </div>
     </div>

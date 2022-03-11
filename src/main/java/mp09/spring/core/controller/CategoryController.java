@@ -4,7 +4,6 @@ import mp09.spring.core.entity.Category;
 import mp09.spring.core.entity.Product;
 import mp09.spring.core.repository.CategoryRepository;
 import mp09.spring.core.service.CategoryServiceImpl;
-import mp09.spring.core.utils.SearchData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
