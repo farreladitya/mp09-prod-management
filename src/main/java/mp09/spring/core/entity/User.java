@@ -33,4 +33,7 @@ public class User extends AuditableBase {
 //    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
 //    @JoinColumn(name = "user_product", referencedColumnName = "id")
 //    private List<Product> products;
+
+
+
 }

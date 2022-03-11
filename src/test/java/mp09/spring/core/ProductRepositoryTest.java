@@ -19,19 +19,19 @@ public class ProductRepositoryTest {
     @Autowired
     private ProductRepository productRepository;
 
-//    @Test
-//    public void testAddNew(){
-//        Product product = new Product();
-//        product.setProductname("Product Name Test");
-//        product.setQty(10);
-//        product.setPrice(20000L);
-//        product.setDescription("Description Test");
-//
-//        Product savedProduct = productRepository.save(product);
-//
-//        Assertions.assertThat(savedProduct).isNotNull();
-//        Assertions.assertThat(savedProduct.getId()).isGreaterThan(0);
-//    }
+    @Test
+    public void testAddNew(){
+        Product product = new Product();
+        product.setProductname("Product Name Test");
+        product.setQty(10);
+        product.setPrice(20000L);
+        product.setDescription("Description Test");
+
+        Product savedProduct = productRepository.save(product);
+
+        Assertions.assertThat(savedProduct).isNotNull();
+        Assertions.assertThat(savedProduct.getId()).isGreaterThan(0);
+    }
 //
 //    @Test
 //    public void testListAll(){
