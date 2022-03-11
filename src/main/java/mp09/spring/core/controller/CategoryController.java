@@ -28,10 +28,6 @@ public class CategoryController {
 
     @GetMapping("")
     public String showCategoryList(Model model) {
-//        List<Category> categories = categoryService.getAll();
-//        model.addAttribute("categories", categories);
-//
-//        return "product-category-list";
         return findPaginated(1, model);
     }
 

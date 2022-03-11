@@ -25,10 +25,6 @@ public class UserController {
 
     @GetMapping("")
     public String showUsers(Model model) {
-//        List<User> users = userService.getAll();
-//        model.addAttribute("users", users);
-//
-//        return "user-list";
         return findPaginated(1, model);
     }
 

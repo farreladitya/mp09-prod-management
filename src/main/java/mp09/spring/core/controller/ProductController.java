@@ -25,10 +25,7 @@ public class ProductController {
 
     @GetMapping("")
     public String showProducts(Model model) {
-//        List<Product> products = productService.getAll();
-//        model.addAttribute("products", products);
-//
-//        return "product-list";
+
         return findPaginated(1, model);
     }
 
@@ -54,6 +51,7 @@ public class ProductController {
         try {
             Product product = productService.getById(id);
             model.addAttribute("product", product);
+            model.addAttribute("categories", productService.getCategories());
             model.addAttribute("pageTitle", "Edit Product (ID: " + id + ")");
 
             return "edit-product";
